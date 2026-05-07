@@ -5,14 +5,14 @@
         "version":"open-ticket-v4.1.3"
     },
     
-    "token":"insert your bot token here! (or leave empty when using 'tokenFromENV')",
-    "tokenFromENV":false,
+    "token":" ",
+    "tokenFromENV":true,
 
     "mainColor":"#f8ba00",
     "language":"english",
     "prefix":"!ticket ",
     "serverId":"discord server id",
-    "globalAdmins":["ROLE_ID_OWNER","ROLE_ID_MODERATOR","ROLE_ID_GUARDIAN"],
+    "globalAdmins":["1500268647426560180","1499105681700294666","1500269165653790731"],
 
     "slashCommands":true,
     "textCommands":true,
