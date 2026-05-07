@@ -1,20 +1,26 @@
 [
   {
-    "id": "growid-ask",
-    "name": "GrowID Check",
-    "question": "What is your GrowID?",
+    "id": "growid",
+    "name": "What is your Growtopia GrowID?",
     "type": "short",
-    "length": { "enabled": true, "min": 3, "max": 20 },
-    "placeholder": "e.g., DrAbel",
-    "required": true
+    "required": true,
+    "placeholder": "Enter your GrowID here...",
+    "length": {
+      "enabled": false,
+      "min": 0,
+      "max": 1000
+    }
   },
   {
-    "id": "issue-ask",
-    "name": "Issue Report",
-    "question": "Please describe your issue:",
+    "id": "reason",
+    "name": "Why are you opening this ticket?",
     "type": "paragraph",
-    "length": { "enabled": true, "min": 10, "max": 500 },
-    "placeholder": "Provide details here...",
-    "required": true
+    "required": true,
+    "placeholder": "Describe your issue briefly...",
+    "length": {
+      "enabled": false,
+      "min": 0,
+      "max": 1000
+    }
   }
 ]
