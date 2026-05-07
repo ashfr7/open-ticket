@@ -7,6 +7,27 @@ import * as discord from "discord.js"
 const generalConfig = opendiscord.configs.get("opendiscord:general")
 const lang = opendiscord.languages
 
+/** Invite cached members of staff roles; excludes the ticket opener. Staff with Manage Threads also retain access without an invite. */
+async function inviteStaffRolesToThread(
+    staffThread: discord.ThreadChannel,
+    guild: discord.Guild,
+    staffRoleIds: Iterable<string>,
+    excludeUserId: string
+) {
+    const invited = new Set<string>()
+    for (const roleId of staffRoleIds) {
+        const role = guild.roles.cache.get(roleId) ?? (await guild.roles.fetch(roleId).catch(() => null))
+        if (!role) continue
+        for (const member of role.members.values()) {
+            if (member.id === excludeUserId) continue
+            if (member.user.bot) continue
+            if (invited.has(member.id)) continue
+            invited.add(member.id)
+            await staffThread.members.add(member.id).catch(() => {})
+        }
+    }
+}
+
 export const registerActions = async () => {
     opendiscord.actions.add(new api.ODAction("opendiscord:create-ticket"))
     opendiscord.actions.get("opendiscord:create-ticket").workers.add([
@@ -222,7 +243,11 @@ export const registerActions = async () => {
                             autoArchiveDuration:discord.ThreadAutoArchiveDuration.OneDay,
                             reason:"Ticket Staff Controls"
                         })
-                        await staffThread.members.add(user.id)
+                        const staffRoleIds = new Set<string>()
+                        generalConfig.data.globalAdmins.forEach((id) => staffRoleIds.add(id))
+                        option.get("opendiscord:admins").value.forEach((id) => staffRoleIds.add(id))
+                        option.get("opendiscord:admins-readonly").value.forEach((id) => staffRoleIds.add(id))
+                        await inviteStaffRolesToThread(staffThread, guild, staffRoleIds, user.id)
                         ticket.get("opendiscord:staff-thread").value = staffThread.id
 
                         const staffMsg = await staffThread.send((await opendiscord.builders.messages.getSafe("opendiscord:ticket-staff-message").build("other",{guild,channel:staffThread,user,ticket})).message)
