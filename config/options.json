@@ -1,8 +1,8 @@
-[[
+[
   {
     "id": "general-ticket",
     "name": "General Ticket",
-    "description": "Click here to start your inquiry.",
+    "description": "Open a support ticket for REICH.",
     "type": "ticket",
     "emoji": "📩",
     "buttonColor": "blue",
@@ -13,7 +13,13 @@
     "questions": [
       "growid-ask",
       "issue-ask"
-    ]
+    ],
+    "embed": {
+      "enabled": true,
+      "title": "🛡️ REICH Support Session",
+      "description": "Thank you for reaching out. An administrator will be with you shortly. Please provide any screenshots if applicable.",
+      "customColor": "#3498db",
+      "timestamp": true
+    }
   }
 ]
-
