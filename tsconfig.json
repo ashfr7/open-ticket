@@ -1,22 +1,13 @@
 {
-    "compilerOptions": {
-        "target": "ES2022",
-        "rootDir":"./",
-        "outDir": "./dist/",
-        "module": "NodeNext",
-        "moduleResolution": "NodeNext",
-
-        "typeRoots": ["./node_modules/@types","./plugins/*/"],
-        "noEmit": false,
-        "allowImportingTsExtensions": false,
-
-        "allowJs": false,
-        "checkJs": false,
-        "declaration": true,
-        "strictNullChecks": true,
-        "strictPropertyInitialization": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
-    },
-    "include": ["./src/*","./src/**/*","./plugins/*","./plugins/**/*"]
+  "prefix": "/",
+  "ticket_type": "thread", 
+  "category_id": "YOUR_SUPPORT_CATEGORY_ID",
+  "logs_channel_id": "YOUR_LOGS_CHANNEL_ID",
+  "limit_per_user": 1,
+  "panel_settings": {
+    "title": "🛡️ REICH | Official Support Center",
+    "description": "Click below to open a ticket. Our admins will assist you with trades, reports, or world inquiries.",
+    "color": "#3498db",
+    "thumbnail": "URL_OF_YOUR_ANIMATED_TRIDENT"
+  }
 }
