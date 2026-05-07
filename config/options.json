@@ -9,11 +9,7 @@
       "label": "General Support",
       "color": "blue"
     },
-    "ticketAdmins": [
-      "1500268647426560180",
-      "R1499105681700294666",
-      "1500269165653790731"
-    ],
+    "ticketAdmins": [],
     "readonlyAdmins": [],
     "allowCreationByBlacklistedUsers": false,
     "questions": [
@@ -23,7 +19,7 @@
     "channel": {
       "prefix": "ticket",
       "suffix": "user-name",
-      "category": "1499099090724585622",
+      "category": "",
       "closedCategory": "",
       "backupCategory": "",
       "claimedCategory": [],
@@ -49,7 +45,7 @@
       "embed": {
         "enabled": true,
         "title": "General Support",
-        "description": "One of our REICH team members will assist you shortly.",
+        "description": "A team member will assist you shortly.",
         "customColor": "",
         "image": "",
         "thumbnail": "",
