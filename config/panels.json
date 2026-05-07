@@ -3,18 +3,21 @@
     "id": "reich-main-panel",
     "name": "Main Support Panel",
     "settings": {
+        "enabled": true,
         "layout": "button",
-        "dropdownPlaceholder": "Select an option..."
+        "dropdown": { "enabled": false, "placeholder": "Select..." },
+        "describeOptionsInEmbedFields": true,
+        "describeOptionsLayout": "normal",
+        "describeOptionsCustomTitle": "Available Options",
+        "describeOptionsInText": false
     },
     "embed": {
-        "title": "🛡️ REICH | Official Support & Reports",
-        "description": "Welcome to the REICH administration hub. Click below to open a ticket.",
+        "title": "🛡️ REICH | Official Support",
+        "description": "Click below to open a ticket.",
         "color": "#3498db",
-        "footer": "Trade Safely • Managed by REICH Admin Team",
+        "footer": "Trade Safely • REICH Admin Team",
         "thumbnail": "https://i.imgur.com/8Nf9n9m.png"
     },
-    "options": [
-      "general-ticket"
-    ]
+    "options": ["general-ticket"]
   }
 ]
