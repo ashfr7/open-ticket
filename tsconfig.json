@@ -1,13 +1,22 @@
 {
-  "prefix": "/",
-  "ticket_type": "thread", 
-  "category_id": "YOUR_SUPPORT_CATEGORY_ID",
-  "logs_channel_id": "1500278009570000956",
-  "limit_per_user": 1,
-  "panel_settings": {
-    "title": "🛡️ REICH | Official Support Center",
-    "description": "Click below to open a ticket. Our admins will assist you with trades, reports, or world inquiries.",
-    "color": "#3498db",
-    "thumbnail": "https://cdn.discordapp.com/attachments/1499099090724585624/1501314941137719356/frame3.png?ex=69fd9a3f&is=69fc48bf&hm=f0128b52ef5899db7f0b3a545d29395879f6ad859ac3ea6f086942ccfe47f9cf&"
-  }
+    "compilerOptions": {
+        "target": "ES2022",
+        "rootDir":"./",
+        "outDir": "./dist/",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+
+        "typeRoots": ["./node_modules/@types","./plugins/*/"],
+        "noEmit": false,
+        "allowImportingTsExtensions": false,
+
+        "allowJs": false,
+        "checkJs": false,
+        "declaration": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["./src/*","./src/**/*","./plugins/*","./plugins/**/*"]
 }
