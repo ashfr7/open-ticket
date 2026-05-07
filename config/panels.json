@@ -1,32 +1,33 @@
 [
   {
-    "id": "reich-main-panel",
-    "name": "Main Support Panel",
-    "settings": {
-        "enabled": true,
-        "layout": "button",
-        "text": "Choose a support category below:",
-        "dropdown": { 
-            "enabled": false, 
-            "placeholder": "Select...",
-            "dropdownPlaceholder": "Select an option..." 
-        },
-        "describeOptionsInEmbedFields": true,
-        "describeOptionsInEmbedDescription": false,
-        "describeOptionsLayout": "normal",
-        "describeOptionsCustomTitle": "Available Options",
-        "describeOptionsInText": false,
-        "enableMaxTicketsWarningInText": true,
-        "enableMaxTicketsWarningInEmbed": true
-    },
+    "id": "main-panel",
+    "name": "Main Panel",
+    "dropdown": false,
+    "options": [
+      "general-support"
+    ],
+    "text": "",
     "embed": {
-        "enabled": true,
-        "title": "🛡️ REICH | Official Support",
-        "description": "Click below to open a ticket for trade disputes or reports.",
-        "color": "#3498db",
-        "footer": "Trade Safely • REICH Admin Team",
-        "thumbnail": "https://i.imgur.com/8Nf9n9m.png"
+      "enabled": true,
+      "title": "🛡️ REICH | Official Support Center",
+      "description": "Click the button below to open a private line to our Administration. Use this for trade disputes, middleman reports, or world inquiries.",
+      "customColor": "#3498db",
+      "url": "",
+      "image": "",
+      "thumbnail": "https://cdn.discordapp.com/attachments/1499099090724585624/1501314941137719356/frame3.png?ex=69fd9a3f&is=69fc48bf&hm=f0128b52ef5899db7f0b3a545d29395879f6ad859ac3ea6f086942ccfe47f9cf&.png",
+      "footer": "",
+      "fields": [],
+      "timestamp": false
     },
-    "options": ["general-ticket"]
+    "settings": {
+      "dropdownPlaceholder": "Open a ticket",
+      "enableMaxTicketsWarningInText": false,
+      "enableMaxTicketsWarningInEmbed": false,
+      "describeOptionsLayout": "normal",
+      "describeOptionsCustomTitle": "",
+      "describeOptionsInText": false,
+      "describeOptionsInEmbedFields": false,
+      "describeOptionsInEmbedDescription": false
+    }
   }
 ]
