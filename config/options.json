@@ -1,17 +1,23 @@
 [
   {
-    "id": "general-support",
-    "name": "General Support",
-    "description": "Open a ticket for any REICH related issue.",
+    "id": "general-ticket",
+    "name": "Open a Ticket",
+    "description": "Standard support for all Reichers.",
     "emoji": "📩",
     "buttonColor": "blue",
-    "category": "PASTE_YOUR_CATEGORY_ID_HERE",
+    "category": "1499099090724585622",
     "roles": [
-      "PASTE_ADMIN_ROLE_ID_HERE"
+      "1500269165653790731",
+      "1499105681700294666",
+      "1500268647426560180"
+
     ],
+    "ping": {
+        "custom": ["1500269165653790731"]
+    },
     "questions": [
-      "growid",
-      "reason"
+      "growid-ask",
+      "issue-ask"
     ]
   }
 ]
