@@ -1,23 +1,19 @@
-[
+[[
   {
     "id": "general-ticket",
-    "name": "Open a Ticket",
-    "description": "Standard support for all Reichers.",
+    "name": "General Ticket",
+    "description": "Click here to start your inquiry.",
+    "type": "ticket",
     "emoji": "📩",
     "buttonColor": "blue",
-    "category": "1499099090724585622",
+    "category": "1501982586585485573",
     "roles": [
-      "1500269165653790731",
-      "1499105681700294666",
-      "1500268647426560180"
-
+      "1500269165653790731"
     ],
-    "ping": {
-        "custom": ["1500269165653790731"]
-    },
     "questions": [
       "growid-ask",
       "issue-ask"
     ]
   }
 ]
+
