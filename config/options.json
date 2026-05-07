@@ -2,31 +2,39 @@
   {
     "id": "general-ticket",
     "name": "General Ticket",
-    "description": "Open a support ticket for REICH.",
+    "description": "Standard support for REICH.",
     "type": "ticket",
     "emoji": "📩",
     "buttonColor": "blue",
-    "roles": [
-      "1500269165653790731"
-    ],
-    "questions": [
-      "growid-ask",
-      "issue-ask"
-    ],
+    "ticketAdmins": ["1500269165653790731"],
+    "readonlyAdmins": [],
+    "questions": ["growid-ask", "issue-ask"],
     "settings": {
+      "category": "1501982586585485573",
       "prefix": "ticket-",
       "suffix": "user-name",
-      "category": "1501982586585485573",
       "limit": 1,
       "allowMove": true,
-      "allowRename": true
+      "allowRename": true,
+      "cooldown": 5,
+      "slowMode": 0
     },
     "embed": {
       "enabled": true,
       "title": "🛡️ REICH Support Session",
-      "description": "Welcome to the administration hub. Please wait while an admin reviews your GrowID and issue.",
+      "description": "Please wait for an administrator.",
       "customColor": "#3498db",
       "timestamp": true
-    }
+    },
+    "ticketMessage": {
+        "text": "New support request opened by {user}!"
+    },
+    "dmMessage": {
+        "enabled": false,
+        "text": "Your ticket in REICH has been opened."
+    },
+    "autoclose": { "enabled": false, "time": 24 },
+    "autodelete": { "enabled": false, "time": 24 },
+    "allowCreationByBlacklistedUsers": false
   }
 ]
