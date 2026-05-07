@@ -13,7 +13,9 @@
     "prefix": "/ticket ",
     "serverId": "1499099089483206781",
     "globalAdmins": ["1500269165653790731"],
-
+                    ["1499105681700294666"],
+                    ["1500268647426560180"],
+    
     "slashCommands": true,
     "textCommands": false,
 
