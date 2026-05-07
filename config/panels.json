@@ -5,15 +5,24 @@
     "settings": {
         "enabled": true,
         "layout": "button",
-        "dropdown": { "enabled": false, "placeholder": "Select..." },
+        "text": "Choose a support category below:",
+        "dropdown": { 
+            "enabled": false, 
+            "placeholder": "Select...",
+            "dropdownPlaceholder": "Select an option..." 
+        },
         "describeOptionsInEmbedFields": true,
+        "describeOptionsInEmbedDescription": false,
         "describeOptionsLayout": "normal",
         "describeOptionsCustomTitle": "Available Options",
-        "describeOptionsInText": false
+        "describeOptionsInText": false,
+        "enableMaxTicketsWarningInText": true,
+        "enableMaxTicketsWarningInEmbed": true
     },
     "embed": {
+        "enabled": true,
         "title": "🛡️ REICH | Official Support",
-        "description": "Click below to open a ticket.",
+        "description": "Click below to open a ticket for trade disputes or reports.",
         "color": "#3498db",
         "footer": "Trade Safely • REICH Admin Team",
         "thumbnail": "https://i.imgur.com/8Nf9n9m.png"
