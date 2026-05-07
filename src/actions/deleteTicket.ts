@@ -202,6 +202,46 @@ export const registerVerifyBars = async () => {
         })
     ])
 
+    //DELETE TICKET STAFF MESSAGE
+    opendiscord.verifybars.add(new api.ODVerifyBar("opendiscord:delete-ticket-staff-message",opendiscord.builders.messages.getSafe("opendiscord:verifybar-ticket-message"),!generalConfig.data.system.disableVerifyBars))
+    opendiscord.verifybars.get("opendiscord:delete-ticket-staff-message")!.success.add([
+        new api.ODWorker("opendiscord:delete-ticket",0,async (instance,params,source,cancel) => {
+            const {user,member,channel,guild} = instance
+
+            //check permissions
+            const permsResult = await opendiscord.permissions.checkCommandPerms(generalConfig.data.system.permissions.delete,"support",user,member,channel,guild)
+            if (!permsResult.hasPerms){
+                if (permsResult.reason == "not-in-server") await instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-not-in-guild").build("button",{channel,user}))
+                else await instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error-no-permissions").build("button",{guild,channel,user,permissions:["support"]}))
+                return cancel()
+            }
+
+            if (!guild) return cancel()
+            const ticket = opendiscord.tickets.get(channel.isThread() ? channel.parentId ?? channel.id : channel.id)
+            if (!ticket || channel.isDMBased()) return cancel()
+
+            //no transcript bypass not supported from staff-controls buttons
+            if (params.data == "reason"){
+                instance.reply(await opendiscord.builders.messages.getSafe("opendiscord:error").build("button",{guild,channel,user,layout:"simple",error:"Reasons are disabled in staff-controls buttons. Use `/delete reason:` instead.",customTitle:"No Permissions"}))
+                return cancel()
+            }
+
+            await instance.defer("update",false)
+            opendiscord.actions.get("opendiscord:delete-ticket").run("ticket-message",{guild,channel:(channel.isThread() ? await opendiscord.client.fetchGuildTextChannel(guild,ticket.id.value) : channel) as any,user,ticket,reason:null,sendMessage:true,withoutTranscript:false})
+            ticket.get("opendiscord:for-deletion").value = true
+            await instance.update(await opendiscord.builders.messages.getSafe("opendiscord:ticket-staff-message").build("other",{guild,channel,user,ticket}))
+        })
+    ])
+    opendiscord.verifybars.get("opendiscord:delete-ticket-staff-message")!.failure.add([
+        new api.ODWorker("opendiscord:back-to-staff-message",0,async (instance,params,source,cancel) => {
+            const {guild,channel,user} = instance
+            if (!guild) return cancel()
+            const ticket = opendiscord.tickets.get(channel.isThread() ? channel.parentId ?? channel.id : channel.id)
+            if (!ticket || channel.isDMBased()) return cancel()
+            await instance.update(await opendiscord.builders.messages.getSafe("opendiscord:ticket-staff-message").build("other",{guild,channel,user,ticket}))
+        })
+    ])
+
     //DELETE TICKET CLOSE MESSAGE
     opendiscord.verifybars.add(new api.ODVerifyBar("opendiscord:delete-ticket-close-message",opendiscord.builders.messages.getSafe("opendiscord:verifybar-close-message"),!generalConfig.data.system.disableVerifyBars))
     opendiscord.verifybars.get("opendiscord:delete-ticket-close-message").success.add([

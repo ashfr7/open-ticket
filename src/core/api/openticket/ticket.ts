@@ -156,6 +156,8 @@ export interface ODTicketJson {
 export interface ODTicketIds {
     "opendiscord:busy":ODTicketData<boolean>,
     "opendiscord:ticket-message":ODTicketData<string|null>,
+    "opendiscord:staff-thread":ODTicketData<string|null>,
+    "opendiscord:staff-message":ODTicketData<string|null>,
     "opendiscord:participants":ODTicketData<{type:"role"|"user",id:string}[]>,
     "opendiscord:channel-suffix":ODTicketData<string>,
     "opendiscord:previous-creators":ODTicketData<string[]>,

@@ -72,6 +72,7 @@ export const registerButtonResponders = async () => {
             const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIds_Default["opendiscord:unclaim-ticket"]["source"],"slash"|"text">
             
             if (originalSource == "ticket-message") await opendiscord.verifybars.get("opendiscord:unclaim-ticket-ticket-message").activate(instance)
+            else if (originalSource == "other") await opendiscord.verifybars.get("opendiscord:unclaim-ticket-staff-message")!.activate(instance)
             else if (originalSource == "claim-message") await opendiscord.verifybars.get("opendiscord:unclaim-ticket-claim-message").activate(instance)
             else await instance.defer("update",false)
         })

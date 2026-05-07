@@ -89,6 +89,7 @@ export const registerButtonResponders = async () => {
             const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIds_Default["opendiscord:delete-ticket"]["source"],"slash"|"text"|"autodelete"|"clear">
             
             if (originalSource == "ticket-message") await opendiscord.verifybars.get("opendiscord:delete-ticket-ticket-message").activate(instance)
+            else if (originalSource == "other") await opendiscord.verifybars.get("opendiscord:delete-ticket-staff-message")!.activate(instance)
             else if (originalSource == "close-message") await opendiscord.verifybars.get("opendiscord:delete-ticket-close-message").activate(instance)
             else if (originalSource == "reopen-message") await opendiscord.verifybars.get("opendiscord:delete-ticket-reopen-message").activate(instance)
             else if (originalSource == "autoclose-message") await opendiscord.verifybars.get("opendiscord:delete-ticket-autoclose-message").activate(instance)

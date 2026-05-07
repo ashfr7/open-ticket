@@ -72,7 +72,8 @@ export const registerButtonResponders = async () => {
         new api.ODWorker("opendiscord:claim-ticket",0,async (instance,params,source,cancel) => {
             const originalSource = instance.interaction.customId.split("_")[1] as Exclude<api.ODActionManagerIds_Default["opendiscord:claim-ticket"]["source"],"slash"|"text">
             
-            if (originalSource == "ticket-message") await opendiscord.verifybars.get("opendiscord:claim-ticket-ticket-message").activate(instance)
+            if (originalSource == "ticket-message") await opendiscord.verifybars.get("opendiscord:claim-ticket-ticket-message")!.activate(instance)
+            else if (originalSource == "other") await opendiscord.verifybars.get("opendiscord:claim-ticket-staff-message")!.activate(instance)
             else if (originalSource == "unclaim-message") await opendiscord.verifybars.get("opendiscord:claim-ticket-unclaim-message").activate(instance)
             else await instance.defer("update",false)
         })

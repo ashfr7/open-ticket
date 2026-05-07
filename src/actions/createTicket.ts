@@ -146,6 +146,8 @@ export const registerActions = async () => {
             const ticket = new api.ODTicket(channel.id,option,[
                 new api.ODTicketData("opendiscord:busy",false),
                 new api.ODTicketData("opendiscord:ticket-message",null),
+                new api.ODTicketData("opendiscord:staff-thread",null),
+                new api.ODTicketData("opendiscord:staff-message",null),
                 new api.ODTicketData("opendiscord:participants",participants),
                 new api.ODTicketData("opendiscord:channel-suffix",channelSuffix),
                 new api.ODTicketData("opendiscord:previous-creators",[]),
@@ -210,6 +212,25 @@ export const registerActions = async () => {
                 const msg = await channel.send((await opendiscord.builders.messages.getSafe("opendiscord:ticket-message").build(source,{guild,channel,user,ticket})).message)
                 
                 ticket.get("opendiscord:ticket-message").value = msg.id
+
+                //create staff-only controls thread + message
+                try{
+                    if (channel instanceof discord.TextChannel){
+                        const staffThread = await channel.threads.create({
+                            name:"staff-controls",
+                            type:discord.ChannelType.PrivateThread,
+                            autoArchiveDuration:discord.ThreadAutoArchiveDuration.OneDay,
+                            reason:"Ticket Staff Controls"
+                        })
+                        await staffThread.members.add(user.id)
+                        ticket.get("opendiscord:staff-thread").value = staffThread.id
+
+                        const staffMsg = await staffThread.send((await opendiscord.builders.messages.getSafe("opendiscord:ticket-staff-message").build("other",{guild,channel:staffThread,user,ticket})).message)
+                        ticket.get("opendiscord:staff-message").value = staffMsg.id
+                    }
+                }catch{
+                    //ignore (missing thread perms, etc). Ticket is still usable via commands.
+                }
 
                 //pin ticket message (if required)
                 if (generalConfig.data.system.pinFirstTicketMessage && msg.pinnable) await msg.pin("Ticket Message")

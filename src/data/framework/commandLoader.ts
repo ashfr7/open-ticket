@@ -28,6 +28,14 @@ export const loadAllSlashCommands = async () => {
         if (generalConfig.data.system.permissions[key] != "none") allowedCommands.push(key)
     }
 
+    const getDefaultMemberPermissions = (commandKey: string): discord.PermissionResolvable|undefined => {
+        const mode = generalConfig.data.system.permissions?.[commandKey]
+        // Discord only supports permission-bit based visibility for slash commands.
+        // Role-based visibility is not supported, so we only hide "admin" commands.
+        if (mode === "admin") return ["ManageGuild"]
+        return undefined
+    }
+
     //HELP
     if (allowedCommands.includes("help")) commands.add(new api.ODSlashCommand("opendiscord:help",{
         type:act.ChatInput,
@@ -35,6 +43,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.help"),
         contexts:[discord.InteractionContextType.BotDM,discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("help"),
     }))
 
     //PANEL
@@ -44,6 +53,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.panel"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("panel"),
         options:[
             {
                 name:"id",
@@ -68,6 +78,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.ticket"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("ticket"),
         options:[
             {
                 name:"id",
@@ -86,6 +97,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.close"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("close"),
         options:[
             {
                 name:"reason",
@@ -103,6 +115,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.delete"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("delete"),
         options:[
             {
                 name:"reason",
@@ -124,6 +137,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.delete"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("delete"),
         options:[
             {
                 name:"reason",
@@ -141,6 +155,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.reopen"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("reopen"),
         options:[
             {
                 name:"reason",
@@ -158,6 +173,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.claim"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("claim"),
         options:[
             {
                 name:"user",
@@ -181,6 +197,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.unclaim"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("unclaim"),
         options:[
             {
                 name:"reason",
@@ -198,6 +215,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.pin"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("pin"),
         options:[
             {
                 name:"reason",
@@ -215,6 +233,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.unpin"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("unpin"),
         options:[
             {
                 name:"reason",
@@ -232,6 +251,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.move"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("move"),
         options:[
             {
                 name:"id",
@@ -256,6 +276,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.rename"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("rename"),
         options:[
             {
                 name:"name",
@@ -280,6 +301,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.add"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("add"),
         options:[
             {
                 name:"user",
@@ -303,6 +325,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.remove"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("remove"),
         options:[
             {
                 name:"user",
@@ -326,6 +349,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.blacklist"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("blacklist"),
         options:[
             {
                 name:"view",
@@ -393,6 +417,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.stats"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("stats"),
         options:[
             {
                 name:"reset",
@@ -448,6 +473,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.clear"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("clear"),
         options:[
             {
                 name:"filter",
@@ -475,6 +501,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.autoclose"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("autoclose"),
         options:[
             {
                 name:"disable",
@@ -519,6 +546,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.autodelete"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("autodelete"),
         options:[
             {
                 name:"disable",
@@ -563,6 +591,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.topic"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("topic"),
         options:[
             {
                 name:"set",
@@ -588,6 +617,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.priority"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("priority"),
         options:[
             {
                 name:"set",
@@ -625,6 +655,7 @@ export const loadAllSlashCommands = async () => {
         description:lang.getTranslation("commands.transfer"),
         contexts:[discord.InteractionContextType.Guild],
         integrationTypes:[discord.ApplicationIntegrationType.GuildInstall],
+        defaultMemberPermissions:getDefaultMemberPermissions("transfer"),
         options:[
             {
                 name:"user",

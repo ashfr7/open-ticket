@@ -12,7 +12,10 @@
     "language":"english",
     "prefix":"!ticket ",
     "serverId":"1499099089483206781",
-    "globalAdmins":[],
+    "globalAdmins":[
+        "1499105681700294666",
+        "1500269165653790731"
+    ],
 
     "slashCommands":true,
     "textCommands":true,
@@ -49,10 +52,10 @@
         "useTranslatedConfigChecker":true,
         "pinFirstTicketMessage":false,
 
-        "enableTicketClaimButtons":true,
-        "enableTicketCloseButtons":true,
-        "enableTicketPinButtons":true,
-        "enableTicketDeleteButtons":true,
+        "enableTicketClaimButtons":false,
+        "enableTicketCloseButtons":false,
+        "enableTicketPinButtons":false,
+        "enableTicketDeleteButtons":false,
         "enableTicketActionWithReason":true,
         "enableDeleteWithoutTranscript":true,
 

@@ -731,6 +731,39 @@ const ticketMessages = () => {
         })
     ])
 
+    //TICKET STAFF MESSAGE (buttons live here)
+    messages.add(new api.ODMessage("opendiscord:ticket-staff-message"))
+    messages.get("opendiscord:ticket-staff-message")!.workers.add([
+        new api.ODWorker("opendiscord:ticket-staff-message-layout",0,async (instance,params,source) => {
+            const {guild,channel,user,ticket} = params
+
+            const text = ticket.option.get("opendiscord:ticket-message-text").value
+            if (text !== "") instance.setContent("**Staff Controls**\n"+text)
+            else instance.setContent("**Staff Controls**")
+
+            if (ticket.option.get("opendiscord:ticket-message-embed").value.enabled) instance.addEmbed(await embeds.getSafe("opendiscord:ticket-message").build("other",{guild,channel,user,ticket}))
+        }),
+        new api.ODWorker("opendiscord:ticket-staff-message-components",1,async (instance,params,source) => {
+            const {guild,channel,user,ticket} = params
+            //claim/unclaim + delete only (keeps staff controls minimal & avoids exposing extra actions)
+            if (!ticket.get("opendiscord:closed").value){
+                if (ticket.get("opendiscord:claimed").value) instance.addComponent(await buttons.getSafe("opendiscord:unclaim-ticket").build("other",{guild,channel,user,ticket}))
+                else instance.addComponent(await buttons.getSafe("opendiscord:claim-ticket").build("other",{guild,channel,user,ticket}))
+            }
+            instance.addComponent(await buttons.getSafe("opendiscord:delete-ticket").build("other",{guild,channel,user,ticket}))
+        }),
+        new api.ODWorker("opendiscord:ticket-staff-message-disable-components",2,async (instance,params) => {
+            const {ticket} = params
+            if (ticket.get("opendiscord:for-deletion").value){
+                instance.data.components.forEach((component) => {
+                    if ((component.component instanceof discord.ButtonBuilder) || (component.component instanceof discord.BaseSelectMenuBuilder)){
+                        component.component.setDisabled(true)
+                    }
+                })
+            }
+        })
+    ])
+
     //TICKET CLOSED
     messages.add(new api.ODMessage("opendiscord:close-message"))
     messages.get("opendiscord:close-message").workers.add(
