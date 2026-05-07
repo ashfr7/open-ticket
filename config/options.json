@@ -6,7 +6,6 @@
     "type": "ticket",
     "emoji": "📩",
     "buttonColor": "blue",
-    "category": "1501982586585485573",
     "roles": [
       "1500269165653790731"
     ],
@@ -14,10 +13,18 @@
       "growid-ask",
       "issue-ask"
     ],
+    "settings": {
+      "prefix": "ticket-",
+      "suffix": "user-name",
+      "category": "1501982586585485573",
+      "limit": 1,
+      "allowMove": true,
+      "allowRename": true
+    },
     "embed": {
       "enabled": true,
       "title": "🛡️ REICH Support Session",
-      "description": "Thank you for reaching out. An administrator will be with you shortly. Please provide any screenshots if applicable.",
+      "description": "Welcome to the administration hub. Please wait while an admin reviews your GrowID and issue.",
       "customColor": "#3498db",
       "timestamp": true
     }
