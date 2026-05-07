@@ -4,8 +4,11 @@
     "name": "General Ticket",
     "description": "REICH Support",
     "type": "ticket",
-    "emoji": "📩",
-    "button": { "label": "Open Ticket", "color": "blue" },
+    "button": { 
+        "label": "Open Ticket", 
+        "color": "blue",
+        "emoji": "📩"
+    },
     "ticketAdmins": ["1500269165653790731"],
     "readonlyAdmins": [],
     "questions": ["growid-ask", "issue-ask"],
@@ -17,7 +20,9 @@
       "allowMove": true,
       "allowRename": true,
       "cooldown": 5,
-      "slowMode": 0
+      "slowMode": 0,
+      "limits": { "enabled": true, "userMaximum": 2 },
+      "channel": { "enabled": true }
     },
     "embed": {
       "enabled": true,
@@ -28,19 +33,23 @@
     },
     "ticketMessage": {
         "enabled": true,
-        "text": "New request from {user}!"
+        "text": "New request from {user}!",
+        "ping": { "enabled": true, "roles": ["1500269165653790731"] },
+        "embed": { "enabled": false }
     },
     "dmMessage": { "enabled": false, "text": "" },
     "autoclose": { 
         "enabled": false, 
+        "enableInactiveHours": false,
         "inactiveHours": 24, 
         "enableUserLeave": true, 
         "disableOnClaim": false 
     },
     "autodelete": { 
         "enabled": false, 
-        "inactiveDays": 3, 
         "enableInactiveDays": false, 
+        "inactiveDays": 3,
+        "disableOnClaim": false,
         "enableUserLeave": true 
     },
     "allowCreationByBlacklistedUsers": false
