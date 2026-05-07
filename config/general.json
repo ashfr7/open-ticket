@@ -5,22 +5,22 @@
         "version":"open-ticket-v4.1.3"
     },
     
-    "token":" ",
+    "token":"",
     "tokenFromENV":true,
 
     "mainColor":"#f8ba00",
     "language":"english",
     "prefix":"!ticket ",
-    "serverId":"discord server id",
-    "globalAdmins":["1500268647426560180","1499105681700294666","1500269165653790731"],
+    "serverId":"123456789012345678",
+    "globalAdmins":[],
 
     "slashCommands":true,
     "textCommands":true,
 
     "status":{
         "enabled":true,
-        "type":"listening OR watching OR playing OR custom",
-        "mode":"online OR invisible OR idle OR dnd",
+        "type":"listening",
+        "mode":"online",
         "text":"/help",
         "state":"(additional text or leave empty)"
     },
@@ -34,7 +34,7 @@
         "disableVerifyBars":true,
         "useRedErrorEmbeds":true,
         "alwaysShowReason":false,
-        "emojiStyle":"before (OR after OR double OR disabled)",
+        "emojiStyle":"before",
         "pinEmoji":"📌",
         
         "replyOnTicketCreation":true,
@@ -58,7 +58,7 @@
 
         "logs":{
             "enabled":false,
-            "channel":"discord channel id"
+            "channel":""
         },
         
         "limits":{
@@ -80,28 +80,28 @@
         },
 
         "permissions":{
-            "help":"everyone (OR admin OR none OR role id)",
-            "panel":"admin (OR everyone OR none OR role id)",
-            "ticket":"none (OR admin OR everyone OR role id)",
-            "close":"everyone (OR admin OR none OR role id)",
+            "help":"everyone",
+            "panel":"admin",
+            "ticket":"none",
+            "close":"everyone",
             "delete":"admin",
-            "reopen":"everyone (OR admin OR none OR role id)",
+            "reopen":"everyone",
             "claim":"admin",
             "unclaim":"admin",
-            "pin":"admin (OR everyone OR none OR role id)",
-            "unpin":"admin (OR everyone OR none OR role id)",
-            "move":"admin (OR everyone OR none OR role id)",
-            "rename":"admin (OR everyone OR none OR role id)",
-            "add":"admin (OR everyone OR none OR role id)",
-            "remove":"admin (OR everyone OR none OR role id)",
-            "blacklist":"admin (OR everyone OR none OR role id)",
-            "stats":"everyone (OR admin OR none OR role id)",
-            "clear":"admin (OR everyone OR none OR role id)",
-            "autoclose":"admin (OR everyone OR none OR role id)",
-            "autodelete":"admin (OR everyone OR none OR role id)",
-            "transfer":"admin (OR everyone OR none OR role id)",
-            "topic":"admin (OR everyone OR none OR role id)",
-            "priority":"admin (OR everyone OR none OR role id)"
+            "pin":"admin",
+            "unpin":"admin",
+            "move":"admin",
+            "rename":"admin",
+            "add":"admin",
+            "remove":"admin",
+            "blacklist":"admin",
+            "stats":"everyone",
+            "clear":"admin",
+            "autoclose":"admin",
+            "autodelete":"admin",
+            "transfer":"admin",
+            "topic":"admin",
+            "priority":"admin"
         },
 
         "messages":{
