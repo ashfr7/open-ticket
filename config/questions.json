@@ -3,18 +3,18 @@
     "id": "growid-ask",
     "name": "GrowID Check",
     "question": "What is your GrowID?",
-    "type": "text",
-    "length": { "min": 3, "max": 20 },
+    "type": "short",
+    "length": { "enabled": true, "min": 3, "max": 20 },
     "placeholder": "e.g., DrAbel",
     "required": true
   },
   {
     "id": "issue-ask",
     "name": "Issue Report",
-    "question": "Please describe your issue or trade dispute:",
+    "question": "Please describe your issue:",
     "type": "paragraph",
-    "length": { "min": 10, "max": 500 },
-    "placeholder": "Describe what happened...",
+    "length": { "enabled": true, "min": 10, "max": 500 },
+    "placeholder": "Provide details here...",
     "required": true
   }
 ]
