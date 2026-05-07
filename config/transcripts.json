@@ -1,55 +1,55 @@
 {
     "general":{
-        "enabled":false,
+        "enabled": true,
 
-        "enableChannel":false,
-        "enableCreatorDM":false,
-        "enableParticipantDM":false,
-        "enableActiveAdminDM":false,
-        "enableEveryAdminDM":false,
+        "enableChannel": true,
+        "enableCreatorDM": false,
+        "enableParticipantDM": false,
+        "enableActiveAdminDM": false,
+        "enableEveryAdminDM": false,
 
-        "channel":"transcript channel id (or leave empty)",
-        "mode":"html OR text"
+        "channel": "1501982586585485573",
+        "mode": "html"
     },
     "embedSettings":{
-        "customColor":"#f8ab00 (or leave empty)",
-        "listAllParticipants":false,
-        "includeTicketStats":false
+        "customColor": "#3498db",
+        "listAllParticipants": true,
+        "includeTicketStats": true
     },
     "textTranscriptStyle":{
-        "layout":"simple OR normal OR detailed",
-        "includeStats":true,
-        "includeIds":false,
-        "includeEmbeds":true,
-        "includeFiles":true,
-        "includeBotMessages":true,
+        "layout": "normal",
+        "includeStats": true,
+        "includeIds": true,
+        "includeEmbeds": true,
+        "includeFiles": true,
+        "includeBotMessages": true,
 
-        "fileMode":"custom OR channel-name OR channel-id OR user-name OR user-id",
-        "customFileName":"this-is-a-transcript (or leave empty)"
+        "fileMode": "user-name",
+        "customFileName": ""
     },
     "htmlTranscriptStyle":{
         "background":{
-            "enableCustomBackground":false,
-            "backgroundColor":"#f8ba00 (or leave empty)",
-            "backgroundImage":"https://www.example.com/image.png (or leave empty)" 
+            "enableCustomBackground": false,
+            "backgroundColor": "#2c2f33",
+            "backgroundImage": "" 
         },
         "header":{
-            "enableCustomHeader":false,
-            "backgroundColor":"#202225",
-            "decoColor":"#f8ba00",
-            "textColor":"#ffffff"
+            "enableCustomHeader": true,
+            "backgroundColor": "#202225",
+            "decoColor": "#3498db",
+            "textColor": "#ffffff"
         },
         "stats":{
-            "enableCustomStats":false,
-            "backgroundColor":"#202225",
-            "keyTextColor":"#737373",
-            "valueTextColor":"#ffffff",
-            "hideBackgroundColor":"#40444a",
-            "hideTextColor":"#ffffff"
+            "enableCustomStats": false,
+            "backgroundColor": "#202225",
+            "keyTextColor": "#737373",
+            "valueTextColor": "#ffffff",
+            "hideBackgroundColor": "#40444a",
+            "hideTextColor": "#ffffff"
         },
         "favicon":{
-            "enableCustomFavicon":false,
-            "imageUrl":"https://t.dj-dj.be/favicon.png"
+            "enableCustomFavicon": false,
+            "imageUrl": "https://t.dj-dj.be/favicon.png"
         }
     }
 }
