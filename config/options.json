@@ -2,10 +2,10 @@
   {
     "id": "general-ticket",
     "name": "General Ticket",
-    "description": "Standard support for REICH.",
+    "description": "REICH Support",
     "type": "ticket",
     "emoji": "📩",
-    "buttonColor": "blue",
+    "button": { "label": "Open Ticket", "color": "blue" },
     "ticketAdmins": ["1500269165653790731"],
     "readonlyAdmins": [],
     "questions": ["growid-ask", "issue-ask"],
@@ -21,20 +21,28 @@
     },
     "embed": {
       "enabled": true,
-      "title": "🛡️ REICH Support Session",
-      "description": "Please wait for an administrator.",
+      "title": "🛡️ REICH Support",
+      "description": "Wait for an admin.",
       "customColor": "#3498db",
       "timestamp": true
     },
     "ticketMessage": {
-        "text": "New support request opened by {user}!"
+        "enabled": true,
+        "text": "New request from {user}!"
     },
-    "dmMessage": {
-        "enabled": false,
-        "text": "Your ticket in REICH has been opened."
+    "dmMessage": { "enabled": false, "text": "" },
+    "autoclose": { 
+        "enabled": false, 
+        "inactiveHours": 24, 
+        "enableUserLeave": true, 
+        "disableOnClaim": false 
     },
-    "autoclose": { "enabled": false, "time": 24 },
-    "autodelete": { "enabled": false, "time": 24 },
+    "autodelete": { 
+        "enabled": false, 
+        "inactiveDays": 3, 
+        "enableInactiveDays": false, 
+        "enableUserLeave": true 
+    },
     "allowCreationByBlacklistedUsers": false
   }
 ]
