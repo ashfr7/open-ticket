@@ -1,57 +1,89 @@
 [
   {
-    "id": "general-ticket",
-    "name": "General Ticket",
-    "description": "REICH Support",
+    "id": "general-support",
+    "name": "General Support",
+    "description": "Open a ticket for any REICH related issue.",
     "type": "ticket",
-    "button": { 
-        "label": "Open Ticket", 
-        "color": "blue",
-        "emoji": "📩"
+    "button": {
+      "emoji": "📩",
+      "label": "General Support",
+      "color": "blue"
     },
-    "ticketAdmins": ["1500269165653790731"],
+    "ticketAdmins": [
+      "1500269165653790731"
+    ],
     "readonlyAdmins": [],
-    "questions": ["growid-ask", "issue-ask"],
-    "settings": {
-      "category": "1501982586585485573",
-      "prefix": "ticket-",
+    "allowCreationByBlacklistedUsers": false,
+    "questions": [
+      "growid",
+      "reason"
+    ],
+    "channel": {
+      "prefix": "ticket",
       "suffix": "user-name",
-      "limit": 1,
-      "allowMove": true,
-      "allowRename": true,
-      "cooldown": 5,
-      "slowMode": 0,
-      "limits": { "enabled": true, "userMaximum": 2 },
-      "channel": { "enabled": true }
+      "category": "1499099090724585622",
+      "closedCategory": "",
+      "backupCategory": "",
+      "claimedCategory": [],
+      "topic": "General support ticket"
     },
-    "embed": {
-      "enabled": true,
-      "title": "🛡️ REICH Support",
-      "description": "Wait for an admin.",
-      "customColor": "#3498db",
-      "timestamp": true
+    "dmMessage": {
+      "enabled": false,
+      "text": "",
+      "embed": {
+        "enabled": false,
+        "title": "",
+        "description": "",
+        "customColor": "",
+        "image": "",
+        "thumbnail": "",
+        "fields": [],
+        "timestamp": false
+      }
     },
     "ticketMessage": {
+      "enabled": true,
+      "text": "",
+      "embed": {
         "enabled": true,
-        "text": "New request from {user}!",
-        "ping": { "enabled": true, "roles": ["1500269165653790731"] },
-        "embed": { "enabled": false }
+        "title": "General Support",
+        "description": "A team member will assist you shortly.",
+        "customColor": "",
+        "image": "",
+        "thumbnail": "",
+        "fields": [],
+        "timestamp": true
+      },
+      "ping": {
+        "@here": false,
+        "@everyone": false,
+        "custom": []
+      }
     },
-    "dmMessage": { "enabled": false, "text": "" },
-    "autoclose": { 
-        "enabled": false, 
-        "enableInactiveHours": false,
-        "inactiveHours": 24, 
-        "enableUserLeave": true, 
-        "disableOnClaim": false 
+    "autoclose": {
+      "enableInactiveHours": false,
+      "inactiveHours": 24,
+      "enableUserLeave": true,
+      "disableOnClaim": false
     },
-    "autodelete": { 
-        "enabled": false, 
-        "enableInactiveDays": false, 
-        "inactiveDays": 3,
-        "disableOnClaim": false,
-        "enableUserLeave": true 
+    "autodelete": {
+      "enableInactiveDays": false,
+      "inactiveDays": 7,
+      "enableUserLeave": false,
+      "disableOnClaim": false
     },
-    "allowCreationByBlacklistedUsers": false
+    "cooldown": {
+      "enabled": false,
+      "cooldownMinutes": 10
+    },
+    "limits": {
+      "enabled": false,
+      "globalMaximum": 20,
+      "userMaximum": 3
+    },
+    "slowMode": {
+      "enabled": false,
+      "slowModeSeconds": 20
+    }
   }
 ]
