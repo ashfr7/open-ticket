@@ -10,6 +10,8 @@
       "color": "blue"
     },
     "ticketAdmins": [
+      "1500268647426560180",
+      "R1499105681700294666",
       "1500269165653790731"
     ],
     "readonlyAdmins": [],
@@ -47,7 +49,7 @@
       "embed": {
         "enabled": true,
         "title": "General Support",
-        "description": "A team member will assist you shortly.",
+        "description": "One of our REICH team members will assist you shortly.",
         "customColor": "",
         "image": "",
         "thumbnail": "",
