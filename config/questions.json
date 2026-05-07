@@ -1,14 +1,14 @@
 [
   {
-    "id": "growid",
+    "id": "growid-ask",
     "question": "What is your Growtopia GrowID?",
-    "placeholder": "Enter your GrowID here...",
+    "placeholder": "e.g., DrAbel",
     "required": true
   },
   {
-    "id": "reason",
-    "question": "Why are you opening this ticket?",
-    "placeholder": "Describe your issue briefly...",
+    "id": "issue-ask",
+    "question": "Please describe your issue or trade dispute:",
+    "placeholder": "Provide item names, amounts, and world names...",
     "required": true
   }
 ]
